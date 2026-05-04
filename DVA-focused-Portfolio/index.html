@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praanshu Ranjan | Data Visualization & Analytics Portfolio</title>
+  <style>
+    :root {
+      --gh-bg: #0d1117;
+      --gh-bg-secondary: #161b22;
+      --gh-border: #30363d;
+      --gh-text-main: #c9d1d9;
+      --gh-text-muted: #8b949e;
+      --gh-link: #58a6ff;
+      --gh-btn-bg: #21262d;
+      --gh-btn-hover: #30363d;
+      --gh-btn-primary: #238636;
+      --gh-btn-primary-hover: #2ea043;
+      --gh-green: #2ea043;
+      --gh-orange: #e34c26;
+      --gh-yellow: #e3b341;
+      --gh-purple: #8957e5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: var(--gh-bg);
+      color: var(--gh-text-main);
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--gh-link);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    header {
+      background: #010409;
+      border-bottom: 1px solid var(--gh-border);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-logo-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: default;
+      fill: #fff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 296px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .avatar {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1;
+      height: auto;
+      border-radius: 50%;
+      border: 1px solid var(--gh-border);
+      margin-bottom: 16px;
+      object-fit: cover;
+      background: var(--gh-bg-secondary);
+    }
+
+    .vcard-names {
+      margin-bottom: 16px;
+    }
+
+    .vcard-fullname {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 600;
+      color: var(--gh-text-main);
+    }
+
+    .vcard-username {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 300;
+      color: var(--gh-text-muted);
+    }
+
+    .user-profile-bio {
+      margin-bottom: 16px;
+      color: var(--gh-text-main);
+      font-size: 16px;
+    }
+
+    .btn-profile {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 5px 16px;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+      background: var(--gh-btn-bg);
+      color: var(--gh-text-main);
+      text-align: center;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .btn-profile:hover {
+      background: var(--gh-btn-hover);
+      text-decoration: none;
+    }
+
+    .vcard-details {
+      list-style: none;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .vcard-details li {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--gh-text-main);
+      word-break: break-word;
+    }
+
+    .vcard-details svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--gh-text-muted);
+      flex-shrink: 0;
+    }
+
+    .skills-section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .skills-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      border: 1px solid var(--gh-border);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gh-text-muted);
+      white-space: nowrap;
+    }
+
+    .content {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .UnderlineNav {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .UnderlineNav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-bottom: 2px solid #f78166;
+      color: var(--gh-text-main);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .UnderlineNav-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--gh-text-muted);
+    }
+
+    .repo-count {
+      padding: 0 6px;
+      border-radius: 999px;
+      background: rgba(110, 118, 129, 0.4);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .repo-filter-bar {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .local-search {
+      width: 100%;
+      max-width: 320px;
+      padding: 6px 12px;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+      background: var(--gh-bg);
+      color: var(--gh-text-main);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .local-search::placeholder {
+      color: var(--gh-text-muted);
+    }
+
+    .local-search:focus {
+      border-color: var(--gh-link);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.25);
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 4px 14px;
+      border: 1px solid var(--gh-border);
+      border-radius: 999px;
+      background: var(--gh-btn-bg);
+      color: var(--gh-text-main);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: var(--gh-btn-hover);
+    }
+
+    .filter-btn.active {
+      background: var(--gh-link);
+      border-color: var(--gh-link);
+      color: #fff;
+    }
+
+    .repo-grid {
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .repo-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+      background: var(--gh-bg);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .repo-card:hover,
+    .repo-card:focus-visible {
+      border-color: var(--gh-text-muted);
+      outline: none;
+    }
+
+    .card-cover-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .repo-card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .repo-header {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .repo-title-group {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .repo-title-group svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      fill: var(--gh-text-muted);
+      flex-shrink: 0;
+    }
+
+    .repo-title {
+      color: var(--gh-link);
+      font-size: 14px;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .repo-badge {
+      padding: 0 7px;
+      border: 1px solid var(--gh-border);
+      border-radius: 999px;
+      color: var(--gh-text-muted);
+      font-size: 12px;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    .repo-desc {
+      margin-bottom: 16px;
+      color: var(--gh-text-muted);
+      font-size: 12px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .repo-tags {
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .topic-tag {
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(56, 139, 253, 0.1);
+      color: var(--gh-link);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 22px;
+      white-space: nowrap;
+    }
+
+    .repo-footer {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--gh-text-muted);
+      font-size: 12px;
+    }
+
+    .lang-color {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    .lang-python { background: var(--gh-yellow); }
+    .lang-tableau { background: var(--gh-orange); }
+    .lang-excel { background: var(--gh-green); }
+    .lang-genai { background: var(--gh-purple); }
+
+    .contrib-graph {
+      margin-bottom: 40px;
+      padding: 16px;
+      overflow-x: hidden;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+    }
+
+    .contrib-title {
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .graph-squares {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .g-sq {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      background: #161b22;
+      outline: 1px solid rgba(255, 255, 255, 0.05);
+      outline-offset: -1px;
+    }
+
+    .g-l1 { background: #0e4429; }
+    .g-l2 { background: #006d32; }
+    .g-l3 { background: #26a641; }
+    .g-l4 { background: #39d353; }
+
+    .no-results {
+      display: none;
+      grid-column: span 2;
+      padding: 40px;
+      border: 1px dashed var(--gh-border);
+      border-radius: 6px;
+      color: var(--gh-text-muted);
+      text-align: center;
+    }
+
+    .site-footer {
+      margin-top: 20px;
+      padding: 40px 24px;
+      border-top: 1px solid var(--gh-border);
+      background: var(--gh-bg);
+      color: var(--gh-text-muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .site-footer a {
+      margin: 0 10px;
+      color: var(--gh-link);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--gh-border);
+      border-radius: 12px;
+      background: var(--gh-bg-secondary);
+      box-shadow: 0 0 0 1px #30363d, 0 16px 32px rgba(0, 0, 0, 0.85);
+      transform: scale(0.98);
+      transition: 0.2s;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-header,
+    .modal-footer {
+      flex-shrink: 0;
+      background: var(--gh-bg-secondary);
+    }
+
+    .modal-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--gh-border);
+    }
+
+    .modal-title {
+      padding-right: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .close-btn {
+      padding: 4px;
+      border: 0;
+      background: none;
+      color: var(--gh-text-muted);
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: var(--gh-text-main);
+    }
+
+    .close-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+      border: 1px solid var(--gh-border);
+      border-radius: 6px;
+    }
+
+    .modal-desc {
+      margin-bottom: 8px;
+      color: var(--gh-text-main);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .modal-footer {
+      padding: 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--gh-border);
+    }
+
+    .btn-cancel,
+    .btn-primary {
+      padding: 5px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      border: 1px solid var(--gh-border);
+      background: var(--gh-btn-bg);
+      color: var(--gh-text-main);
+    }
+
+    .btn-cancel:hover {
+      background: var(--gh-btn-hover);
+    }
+
+    .btn-primary {
+      border: 1px solid rgba(240, 246, 252, 0.1);
+      background: var(--gh-btn-primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--gh-btn-primary-hover);
+      text-decoration: none;
+    }
+
+    .icon {
+      display: inline-block;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    @media (max-width: 768px) {
+      .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .container {
+        padding: 16px;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .sidebar-header {
+        margin-bottom: 16px;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .avatar {
+        width: 80px;
+        max-width: none;
+        margin-bottom: 0;
+      }
+
+      .vcard-names {
+        margin-bottom: 0;
+      }
+
+      .vcard-fullname {
+        font-size: 20px;
+      }
+
+      .vcard-username {
+        font-size: 16px;
+      }
+
+      .repo-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .no-results {
+        grid-column: span 1;
+      }
+
+      .contrib-graph {
+        padding: 12px;
+      }
+
+      .modal-footer {
+        flex-direction: column;
+      }
+
+      .modal-footer button,
+      .modal-footer a {
+        width: 100%;
+      }
+
+      .local-search {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="header-logo-container">
+        <button class="mobile-menu-btn" aria-hidden="true" tabindex="-1">
+          <svg viewBox="0 0 16 16" width="24" height="24"><path d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path></svg>
+        </button>
+        <div class="header-logo" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </div>
+        <div style="width: 24px;"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="https://github.com/praanshuranjan.png"
+          alt="Praanshu Ranjan avatar"
+          class="avatar"
+        >
+        <div class="vcard-names">
+          <h1 class="vcard-fullname">Praanshu Ranjan</h1>
+          <h2 class="vcard-username">praanshuranjan</h2>
+        </div>
+      </div>
+
+      <div class="user-profile-bio">
+        Data analytics and visualization learner building KPI-driven dashboards, predictive healthcare workflows, and business intelligence stories across logistics, retail, and healthcare.
+      </div>
+
+      <a href="../DVA-oriented-Resume/Praanshu_Ranjan_resume.pdf" class="btn-profile" target="_blank">View Resume</a>
+
+      <ul class="vcard-details">
+        <li>
+          <svg viewBox="0 0 16 16"><path d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+          Bengaluru, India
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z"></path></svg>
+          <a href="mailto:praanshuranjan123@gmail.com">praanshuranjan123@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16"><path d="M3.75 0h8.5C13.216 0 14 .784 14 1.75v12.5A1.75 1.75 0 0 1 12.25 16h-8.5A1.75 1.75 0 0 1 2 14.25V1.75C2 .784 2.784 0 3.75 0ZM3.5 1.75v12.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM8 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>
+          <a href="https://github.com/praanshuranjan" target="_blank" rel="noreferrer">github.com/praanshuranjan</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+          <a href="https://www.linkedin.com/in/praanshu-ranjan-a3158429a/" target="_blank" rel="noreferrer">linkedin.com/in/praanshu-ranjan-a3158429a</a>
+        </li>
+      </ul>
+
+      <div class="skills-section">
+        <h2>Core Stack</h2>
+        <div class="skills-badges">
+          <span class="badge">Python</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">NumPy</span>
+          <span class="badge">Tableau</span>
+          <span class="badge">Excel</span>
+          <span class="badge">Streamlit</span>
+          <span class="badge">scikit-learn</span>
+          <span class="badge">LangGraph</span>
+          <span class="badge">RAG</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <nav class="UnderlineNav">
+        <div class="UnderlineNav-item">
+          <svg viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+          Repositories <span class="repo-count" id="repo-count-badge">3</span>
+        </div>
+      </nav>
+
+      <div class="repo-filter-bar">
+        <input type="text" id="repo-search" class="local-search" placeholder="Find a repository...">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="tableau">Tableau</button>
+          <button class="filter-btn" data-filter="excel">Excel</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+        </div>
+      </div>
+
+      <div class="repo-grid" id="repo-grid">
+        <div
+          class="repo-card open-modal-btn"
+          tabindex="0"
+          data-category="tableau"
+          data-title="OlistDelayLens"
+          data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+          data-link="https://github.com/Harsith-Panda/E_G2_OlistDelayLens"
+          data-desc="A logistics analytics capstone on 92,923 delivered Olist orders. Built KPI definitions for late delivery rate, dispatch latency, and customer satisfaction impact, then translated the findings into a four-dashboard Tableau story and executive recommendations for seller SLAs, ETA buffers, and regional consolidation hubs."
+        >
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Olist analytics dashboard cover" class="card-cover-image">
+          <div class="repo-card-body">
+            <div class="repo-header">
+              <div class="repo-title-group">
+                <svg class="icon" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                <span class="repo-title">OlistDelayLens</span>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
+            <p class="repo-desc">Logistics delay intelligence using Python, KPI design, and a four-dashboard Tableau narrative for delivery operations.</p>
+            <div class="repo-tags">
+              <span class="topic-tag">tableau</span>
+              <span class="topic-tag">logistics</span>
+              <span class="topic-tag">kpi-design</span>
+            </div>
+            <div class="repo-footer">
+              <span><span class="lang-color lang-tableau"></span> Tableau</span>
+              <span><span class="lang-color lang-python"></span> Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="repo-card open-modal-btn"
+          tabindex="0"
+          data-category="excel"
+          data-title="Amazon E-Commerce Sales Performance and Profitability Analysis"
+          data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+          data-link="https://github.com/mayank-pillai-99/SectionE_Group2_Amazon-E-Commerce-Sales-Performance-and-Profitability-Analysis"
+          data-desc="A revenue and profitability analysis on 10,000 Amazon product listings. Cleaned the dataset in Google Sheets and Excel, engineered revenue-ready features, built pivots and dashboard filters, and surfaced that Best Seller products generate 5 to 10 times higher revenue than generic listings."
+        >
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Amazon revenue dashboard cover" class="card-cover-image">
+          <div class="repo-card-body">
+            <div class="repo-header">
+              <div class="repo-title-group">
+                <svg class="icon" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                <span class="repo-title">Amazon Performance Analysis</span>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
+            <p class="repo-desc">E-commerce performance dashboarding in Google Sheets and Excel with product-rating, badge, sponsorship, and shipping analysis.</p>
+            <div class="repo-tags">
+              <span class="topic-tag">excel</span>
+              <span class="topic-tag">revenue-analytics</span>
+              <span class="topic-tag">dashboarding</span>
+            </div>
+            <div class="repo-footer">
+              <span><span class="lang-color lang-excel"></span> Excel</span>
+              <span><span class="lang-color lang-excel"></span> Google Sheets</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="repo-card open-modal-btn"
+          tabindex="0"
+          data-category="python"
+          data-title="Clinical Appointment No-Show Prediction & Agentic Care Coordination"
+          data-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80"
+          data-link="https://github.com/Ansh1816/gen_ai_capstone_4"
+          data-desc="A healthcare operations system that predicts appointment no-shows on 110,000 plus records and pairs the risk model with a LangGraph-based AI agent. The workflow combines feature engineering, a Decision Tree classifier with about 78 percent accuracy, a Streamlit interface, and RAG-backed care coordination plans."
+        >
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80" alt="Healthcare analytics cover" class="card-cover-image">
+          <div class="repo-card-body">
+            <div class="repo-header">
+              <div class="repo-title-group">
+                <svg class="icon" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                <span class="repo-title">Clinical No-Show Predictor</span>
+              </div>
+              <span class="repo-badge">Public</span>
+            </div>
+            <p class="repo-desc">Predictive healthcare analytics with scikit-learn, Streamlit, LangGraph, and retrieval-backed care coordination plans.</p>
+            <div class="repo-tags">
+              <span class="topic-tag">python</span>
+              <span class="topic-tag">machine-learning</span>
+              <span class="topic-tag">langgraph</span>
+            </div>
+            <div class="repo-footer">
+              <span><span class="lang-color lang-python"></span> Python</span>
+              <span><span class="lang-color lang-genai"></span> GenAI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="no-results" id="no-results-msg">
+          No repositories match your search or filter.
+        </div>
+      </div>
+
+      <div class="contrib-graph">
+        <div class="contrib-title">3 capstone projects, 9+ core tools, and cross-domain work in logistics, retail, and healthcare</div>
+        <div class="graph-squares" id="graph-squares"></div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> Praanshu Ranjan. All rights reserved.</p>
+    <div style="margin-top: 8px;">
+      <a href="https://www.linkedin.com/in/praanshu-ranjan-a3158429a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/praanshuranjan" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="mailto:praanshuranjan123@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="m-title">
+      <div class="modal-header">
+        <div class="modal-title" id="m-title">Project Title</div>
+        <button class="close-btn" id="close-modal" aria-label="Close dialog">
+          <svg viewBox="0 0 16 16"><path d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="" id="m-img" alt="Project cover" class="modal-img">
+        <p class="modal-desc" id="m-desc">Full description goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" id="cancel-modal">Cancel</button>
+        <a href="#" target="_blank" rel="noreferrer" class="btn-primary" id="m-link">View Repository</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    const graphContainer = document.getElementById("graph-squares");
+    const graphPattern = [
+      "g-sq", "g-sq g-l1", "g-sq g-l2", "g-sq", "g-sq g-l3", "g-sq",
+      "g-sq g-l1", "g-sq g-l4", "g-sq", "g-sq g-l2", "g-sq", "g-sq g-l3"
+    ];
+
+    for (let i = 0; i < 228; i += 1) {
+      const cell = document.createElement("div");
+      cell.className = graphPattern[i % graphPattern.length];
+      graphContainer.appendChild(cell);
+    }
+
+    const searchInput = document.getElementById("repo-search");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const repoCards = document.querySelectorAll(".repo-card");
+    const repoCountBadge = document.getElementById("repo-count-badge");
+    const noResultsMsg = document.getElementById("no-results-msg");
+
+    let currentSearchTerm = "";
+    let currentFilter = "all";
+
+    function filterRepositories() {
+      let visibleCount = 0;
+
+      repoCards.forEach((card) => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        const desc = card.getAttribute("data-desc").toLowerCase();
+        const category = card.getAttribute("data-category");
+        const matchesSearch = title.includes(currentSearchTerm) || desc.includes(currentSearchTerm);
+        const matchesFilter = currentFilter === "all" || category === currentFilter;
+
+        if (matchesSearch && matchesFilter) {
+          card.style.display = "flex";
+          visibleCount += 1;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      repoCountBadge.textContent = String(visibleCount);
+      noResultsMsg.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener("input", (event) => {
+      currentSearchTerm = event.target.value.trim().toLowerCase();
+      filterRepositories();
+    });
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((item) => item.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.getAttribute("data-filter");
+        filterRepositories();
+      });
+    });
+
+    filterRepositories();
+
+    const modal = document.getElementById("modal");
+    const closeModalBtn = document.getElementById("close-modal");
+    const cancelModalBtn = document.getElementById("cancel-modal");
+    const mTitle = document.getElementById("m-title");
+    const mDesc = document.getElementById("m-desc");
+    const mImg = document.getElementById("m-img");
+    const mLink = document.getElementById("m-link");
+
+    function openModal(card) {
+      mTitle.textContent = card.getAttribute("data-title");
+      mDesc.textContent = card.getAttribute("data-desc");
+      mImg.src = card.getAttribute("data-img");
+      mImg.alt = `${card.getAttribute("data-title")} cover`;
+      mLink.href = card.getAttribute("data-link");
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "auto";
+    }
+
+    repoCards.forEach((card) => {
+      card.addEventListener("click", () => openModal(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openModal(card);
+        }
+      });
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+    cancelModalBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
